@@ -4,6 +4,7 @@ require_once __DIR__ . '/src/Aura/Sql/Connection/Mysql.php';
 require_once __DIR__ . '/src/Aura/Sql/Connection/Pgsql.php';
 require_once __DIR__ . '/src/Aura/Sql/Connection/Sqlite.php';
 require_once __DIR__ . '/src/Aura/Sql/Connection/Sqlsrv.php';
+require_once __DIR__ . '/src/Aura/Sql/Connection/Informix.php';
 require_once __DIR__ . '/src/Aura/Sql/ConnectionFactory.php';
 require_once __DIR__ . '/src/Aura/Sql/ConnectionLocator.php';
 require_once __DIR__ . '/src/Aura/Sql/Column.php';
