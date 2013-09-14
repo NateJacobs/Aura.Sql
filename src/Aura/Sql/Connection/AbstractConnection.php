@@ -1077,6 +1077,7 @@ abstract class AbstractConnection
             $this->options
         );
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER);
         return $pdo;
     }
 

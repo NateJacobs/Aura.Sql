@@ -27,14 +27,16 @@ class Informix extends AbstractConnection
      * @var string|array
      * 
      */
-    protected $dsn = [
+
+	protected $dsn = [
         'host' => null,
         'service' => null,
         'database' => null,
         'server' => null,
         'protocol' => 'onsoctcp',
         'EnableScrollableCursors' => '1',
-    ];
+	];
+
 
     /**
      * 
@@ -75,11 +77,9 @@ class Informix extends AbstractConnection
      */
     public function fetchTableList($schema = null)
     {
-        $text = 'SHOW TABLES';
-        if ($schema) {
-            $text .= ' IN ' . $this->replaceName($schema);
-        }
-        return $this->fetchCol($text);
+        $text = 'SELECT * FROM systables';
+
+        return $this->fetchAll($text);
     }
 
     /**
@@ -95,10 +95,11 @@ class Informix extends AbstractConnection
      */
     public function fetchTableCols($spec)
     {
-        list($schema, $table) = $this->splitName($spec);
+    		list($schema, $table) = $this->splitName($spec);
 
         $table = $this->quoteName($table);
         $text = "SHOW COLUMNS FROM $table";
+        //$text = "SELECT tabname,colname,coltype,collength FROM systables AS a JOIN syscolumns AS b ON a.tabid=b.tabid WHERE tabname='$spec'";
 
         if ($schema) {
             $schema = preg_replace('/[^\w]/', '', $schema);
