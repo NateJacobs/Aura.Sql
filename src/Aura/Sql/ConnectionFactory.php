@@ -32,6 +32,7 @@ class ConnectionFactory
         'mysql'  => 'Aura\Sql\Connection\Mysql',
         'pgsql'  => 'Aura\Sql\Connection\Pgsql',
         'sqlite' => 'Aura\Sql\Connection\Sqlite',
+        'informix' => 'Aura\Sql\Connection\Informix',
     ];
 
     /**
